@@ -1,13 +1,13 @@
-FROM node:18-alpine
+FROM node:22
 
-WORKDIR /app
+WORKDIR /usr/src/proxy-service
 
 COPY package*.json ./
 
-RUN npm install --production
+RUN npm install
 
 COPY . .
 
-RUN npm run build
+EXPOSE 7890
 
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start"]

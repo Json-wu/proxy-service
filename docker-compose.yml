@@ -4,17 +4,10 @@ services:
     build: .
     ports:
       - '7890:7890'
-    depends_on:
-      - mongo
+    restart: always
     environment:
-      NODE_ENV: production
-      MONGODB_URI: mongodb://mongo:27017/proxy-logs
+      NODE_ENV: testing
+      MONGODB_URI_PROXY: mongodb://172.17.0.1:27017/proxy-logs
       PORT: 7890
-  mongo:
-    image: mongo:latest
-    ports:
-      - '27017:27017'
-    volumes:
-      - mongo-data:/data/db
 volumes:
   mongo-data:

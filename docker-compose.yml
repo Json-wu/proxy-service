@@ -3,11 +3,11 @@ services:
   app:
     build: .
     ports:
-      - '7890:7890'
+      - '3001:3001'
     restart: always
     environment:
       NODE_ENV: testing
       MONGODB_URI_PROXY: mongodb://172.17.0.1:27017/proxy-logs
-      PORT: 7890
+      PORT: 3001
 volumes:
   mongo-data:
